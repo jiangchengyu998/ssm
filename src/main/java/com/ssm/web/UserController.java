@@ -83,9 +83,7 @@ public class UserController {
         /**
          * 查看所有的用户
          */
-//        TUser login = (TUser) request.getSession().getAttribute("login");
         PageInfo<TUser> page = userService.page(pageNum, pageSize, user);
-//        PageInfo<User> page = userService.findPage(user);
         model.addAttribute("pageInfo", page);
         return "modules/sys/userList";
     }
