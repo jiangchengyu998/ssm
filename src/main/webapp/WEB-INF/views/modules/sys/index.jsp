@@ -17,8 +17,8 @@
         <!--头部信息-->
         <header class="main-header">
             <a href="http://www.learun.cn/adms/index.html" target="_blank" class="logo">
-                <span class="logo-mini">员工</span>
-                <span class="logo-lg"><strong>${productName }</strong></span>
+                <span class="logo-mini">捐赠</span>
+                <span class="logo-lg"><strong>衣物捐赠系统</strong></span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a class="sidebar-toggle">
@@ -26,29 +26,10 @@
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <!-- <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o "></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                        </li>
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                        </li>
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
-                            </a>
-                        </li> -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <%--<img src="${login.pic }" class="user-image" alt="User Image">--%>
                                 <span class="hidden-xs">用户：</span>
-                                <span class="hidden-xs">${login.trueName }</span>
+                                <span class="hidden-xs">${login.username }</span>
                             </a>
                             <ul class="dropdown-menu pull-right">
                                 <li><a class="menuItem" data-id="userInfo" href="${adminPath }/sys/user/userInfo"><i class="fa fa-user"></i>个人信息</a></li>
@@ -63,31 +44,27 @@
         <!--左边导航-->
         <div class="main-sidebar">
             <div class="sidebar">
-                <%--<div class="user-panel">--%>
-                    <%--<div class="pull-left image">--%>
-                        <%--<img src="${login.pic }" class="img-circle" alt="User Image">--%>
-                    <%--</div>--%>
-                    <%--<div class="pull-left info">--%>
-                        <%--<p>${login.trueName }</p>--%>
-                        <%--<!-- <a><i class="fa fa-circle text-success"></i>在线</a> -->--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <!-- <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2534754276&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2534754276:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
-                    </div>
-                </form> -->
                 <ul class="sidebar-menu" id="sidebar-menu">
                     <!--<li class="header">导航菜单</li>-->
-                    <li class="treeview active"><a href="#"><i class="fa fa-desktop"></i><span>系统管理</span><i class="fa fa-angle-left pull-right"></i></a>
-                    	<ul class="treeview-menu menu-open" style="display: block;">
-                            <c:if test="${login.role!='3'}">
-                    		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b193" href="${adminPath }/sys/user"><i class="fa fa-leaf"></i>用户管理</a></li>
-                            </c:if>
-                    		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b194" href="${adminPath }/erm/checkingIn"><i class="fa fa-leaf"></i>考勤管理</a></li>
-                    		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/erm/salary"><i class="fa fa-leaf"></i>工资管理</a></li>
-                    	</ul>
-                    </li>
+                    <c:choose>
+                        <c:when test="${login.type == '1'}">
+                            <li class="treeview active"><a href="#"><i class="fa fa-desktop"></i><span>系统管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu menu-open" style="display: block;">
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b193" href="${adminPath }/userList?pageNum=1&pageSize=10"><i class="fa fa-leaf"></i>用户管理</a></li>
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b194" href="${adminPath }/erm/checkingIn"><i class="fa fa-leaf"></i>衣物管理</a></li>
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/erm/salary"><i class="fa fa-leaf"></i>衣物申请管理</a></li>
+                                </ul>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="treeview"><a href="#"><i class="fa fa-desktop"></i><span>我的捐赠管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu menu-open" style="display: block;">
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/erm/salary"><i class="fa fa-leaf"></i>我的捐赠申请</a></li>
+                                </ul>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+
                     <li class="treeview"><a href="#"><i class="fa fa-desktop"></i><span>个人信息</span><i class="fa fa-angle-left pull-right"></i></a>
                     	<ul class="treeview-menu" style="display: none;">
                     		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b196" href="${adminPath }/sys/user/userInfo"><i class="fa fa-leaf"></i>个人中心</a></li>
@@ -105,7 +82,15 @@
                 </button>
                 <nav class="page-tabs menuTabs">
                     <div class="page-tabs-content" style="margin-left: 0px;">
-                        <a href="javascript:;" class="menuTab active" data-id="index">考勤管理<i class="fa fa-remove"></i></a>
+                        <c:choose>
+                            <c:when test="${login.type == '1'}">
+                                <a href="javascript:;" class="menuTab active" data-id="index">用户管理<i class="fa fa-remove"></i></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="javascript:;" class="menuTab active" data-id="index">我的捐赠申请<i class="fa fa-remove"></i></a>
+                            </c:otherwise>
+                        </c:choose>
+
                     </div>
                 </nav>
                 <button class="roll-nav roll-right tabRight">
@@ -126,7 +111,14 @@
             </div>
             <div class="content-iframe" style="overflow: hidden;">
                 <div class="mainContent" id="content-main" style="margin: 10px; margin-bottom: 0px; padding: 0;">
-                    <iframe class="LRADMS_iframe" width="100%" height="100%" src="${adminPath }/erm/checkingIn/" frameborder="0" data-id="index"></iframe>
+                    <c:choose>
+                        <c:when test="${login.type == '1'}">
+                            <iframe class="LRADMS_iframe" width="100%" height="100%" src="${adminPath }/userList" frameborder="0" data-id="index"></iframe>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="javascript:;" class="menuTab active" data-id="index">欢迎使用<i class="fa fa-remove"></i></a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

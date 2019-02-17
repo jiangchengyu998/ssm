@@ -11,7 +11,7 @@ public class TUser {
 
     private String email;
 
-    private String type;
+    private String type;  // 类型（1-管理员，0-普通用户）
 
     private String createTime;
 

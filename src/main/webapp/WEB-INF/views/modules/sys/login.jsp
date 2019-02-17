@@ -38,14 +38,14 @@
 <body style="background:url(${ctxStatic }/login/images/bg.jpg) no-repeat;">
     
     <div class="container wrap1" style="height:450px;">
-            <h2 class="mg-b20 text-center">员工管理</h2>
+            <h2 class="mg-b20 text-center">衣物捐赠系统</h2>
             <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
                 <p class="text-center font16">用户登录</p>
-                <form action="${adminPath }/sys/user/doLoginWhitTel" method="post">
+                <form action="${adminPath }/doLogin" method="post">
                     <div class="form-group mg-t20">
                         <i class="icon-user icon_font"></i>
                         <%--<input type="text" class="login_input" id="username" name="username" value="${username }" placeholder="请输入用户名" />--%>
-                        <input type="text" class="login_input" id="phone" name="phone" value="${username }" placeholder="请输入电话号码" />
+                        <input type="text" class="login_input" id="username" name="username" value="${username }" placeholder="请输入用户名" />
                     </div>
                     <div class="form-group mg-t20">
                         <i class="icon-lock icon_font"></i>
@@ -65,7 +65,7 @@
                     <br>
                     <p>
                         <a href="${adminPath}/sys/user/register">
-                                经理注册
+                                注册
                         </a>
                     </p>
                </form>

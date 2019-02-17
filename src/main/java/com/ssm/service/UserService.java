@@ -9,4 +9,6 @@ public interface UserService {
     int add(TUser t);
     int update(TUser t);
     PageInfo<TUser> page(int pageNum,int pageSize, TUser t);
+
+    TUser login(TUser user);
 }

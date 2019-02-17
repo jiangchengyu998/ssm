@@ -38,9 +38,9 @@
 <body style="background:url(${ctxStatic }/login/images/bg.jpg) no-repeat;">
     
     <div class="container wrap1" style="height:650px;">
-            <h2 class="mg-b20 text-center">员工管理系统</h2>
+            <h2 class="mg-b20 text-center">衣物捐赠系统</h2>
             <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
-                <p class="text-center font16">经理注册</p>
+                <p class="text-center font16">注册</p>
                 <form action="${adminPath }/sys/user/doRegister" method="post">
                     <div class="form-group mg-t20">
                         <i class="icon-data icon_font"></i>
