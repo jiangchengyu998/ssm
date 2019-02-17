@@ -10,7 +10,7 @@
 			
 		});
 		function page(n){
-			$("#pageNo").val(n);
+			$("#pageNum").val(n);
 			$("#searchForm").submit();
 	       	return false;
 	       }
@@ -30,37 +30,6 @@
 				<div class="col-sm-1">
    					<input id="phone" name="phone" class="form-control input-sm" placeholder="电话"/>
    				</div>
-			<%--<label for="firstname" class="col-sm-1 control-label">性别：</label>--%>
-				<%--<div class="col-sm-1">--%>
-					<%--<form:select path="sex" htmlEscape="false" maxlength="64" class="form-control ">--%>
-						<%--<form:option value="">-未选择-</form:option>--%>
-						<%--<form:option value="男">男</form:option>--%>
-						<%--<form:option value="女">女</form:option>--%>
-					<%--</form:select>--%>
-   				<%--</div>--%>
-			<%--<label for="firstname" class="col-sm-1 control-label">手机：</label>--%>
-				<%--<div class="col-sm-2">--%>
-   					<%--<form:input path="phone" htmlEscape="false" class="form-control input-sm" placeholder="手机"/>--%>
-   				<%--</div>--%>
-			<%--<c:if test="${login.role == '1'}">--%>
-			<%--<label for="firstname" class="col-sm-1 control-label">角色：</label>--%>
-				<%--<div class="col-sm-2">--%>
-					<%--<form:select path="role" htmlEscape="false" maxlength="64" class="form-control ">--%>
-						<%--<form:option value="">-未选择-</form:option>--%>
-						<%--<form:option value="1">管理员</form:option>--%>
-						<%--<form:option value="2">经理</form:option>--%>
-						<%--<form:option value="3">普通员工</form:option>--%>
-					<%--</form:select>--%>
-   				<%--</div>--%>
-			<%--</c:if>--%>
-			<%--<label for="firstname" class="col-sm-1 control-label">是否锁定：</label>--%>
-				<%--<div class="col-sm-2">--%>
-					<%--<form:select path="isBlock" htmlEscape="false" maxlength="64" class="form-control ">--%>
-						<%--<form:option value="">-未选择-</form:option>--%>
-						<%--<form:option value="0">未锁定</form:option>--%>
-						<%--<form:option value="1">锁定</form:option>--%>
-					<%--</form:select>--%>
-   				<%--</div>--%>
 			<button class="btn btn-success btn-sm" type="submit">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 				查询
@@ -103,15 +72,15 @@
 					<%--<fmt:formatDate value="${user.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>--%>
 				</td>
 				<td>
-    				<a href="${adminPath}/sys/user/form?id=${user.id}">
-    					<button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    				<a href="${adminPath}/form?id=${user.id}">
+    					<%--<button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil" ></span>--%>
 							编辑
-						</button>
+						<%--</button>--%>
     				</a>
-					<a href="${adminPath}/sys/user/delete?id=${user.id}" onclick="return confirm('确认要删除吗？', this.href)">
-						<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					<a href="${adminPath}/user/delete?id=${user.id}" onclick="return confirm('确认要删除吗？', this.href)">
+						<%--<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>--%>
 							删除
-						</button>
+						<%--</button>--%>
 					</a>
 				</td>
 			</tr>

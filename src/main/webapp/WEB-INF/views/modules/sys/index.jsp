@@ -32,9 +32,9 @@
                                 <span class="hidden-xs">${login.username }</span>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a class="menuItem" data-id="userInfo" href="${adminPath }/sys/user/userInfo"><i class="fa fa-user"></i>个人信息</a></li>
+                                <li><a class="menuItem" data-id="userInfo" href="${adminPath }/user/userInfo"><i class="fa fa-user"></i>个人信息</a></li>
                                 <li class="divider"></li>
-                                <li><a href="${adminPath }/sys/user/logout"><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
+                                <li><a href="${adminPath }/user/logout"><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -67,7 +67,7 @@
 
                     <li class="treeview"><a href="#"><i class="fa fa-desktop"></i><span>个人信息</span><i class="fa fa-angle-left pull-right"></i></a>
                     	<ul class="treeview-menu" style="display: none;">
-                    		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b196" href="${adminPath }/sys/user/userInfo"><i class="fa fa-leaf"></i>个人中心</a></li>
+                    		<li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b196" href="${adminPath }/user/userInfo"><i class="fa fa-leaf"></i>个人中心</a></li>
                     	</ul>
                     </li>
                 </ul>
