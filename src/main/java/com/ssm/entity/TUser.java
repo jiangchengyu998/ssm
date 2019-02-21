@@ -1,6 +1,10 @@
 package com.ssm.entity;
 
-public class TUser {
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionEvent;
+import java.io.Serializable;
+
+public class TUser implements Serializable, HttpSessionActivationListener {
     private Integer id;
 
     private String username;
@@ -69,5 +73,15 @@ public class TUser {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime == null ? null : createTime.trim();
+    }
+
+    @Override
+    public void sessionWillPassivate(HttpSessionEvent httpSessionEvent) {
+        System.out.println("被钝化了。。。。。。。。。");
+    }
+
+    @Override
+    public void sessionDidActivate(HttpSessionEvent httpSessionEvent) {
+        System.out.println("被活化了。。。。。。。。。");
     }
 }
