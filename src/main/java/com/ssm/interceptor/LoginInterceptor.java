@@ -13,10 +13,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         TUser currentUser = UserUtils.getCurrentUser(request);
-        if(currentUser == null
-                && !request.getRequestURI().equals("/login")
-                && !request.getRequestURI().equals("/doLogin")
-                ){
+        if(currentUser == null ){
             // 没有登录
             response.sendRedirect("/login");
             return false;
