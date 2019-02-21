@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ssm.entity.TClothes" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
-    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="clothes_describe" property="clothesDescribe" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="apply_id" property="applyId" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, type_id, desc, user_id, apply_id, remark, size, color
+    id, type_id, clothes_describe, user_id, apply_id, remark, size, color
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ssm.entity.TClothesExample" >
     select
@@ -103,10 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ssm.entity.TClothes" >
-    insert into t_clothes (id, type_id, desc, 
+    insert into t_clothes (id, type_id, clothes_describe,
       user_id, apply_id, remark, 
       size, color)
-    values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{desc,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{clothesDescribe,jdbcType=VARCHAR},
       #{userId,jdbcType=INTEGER}, #{applyId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
       #{size,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR})
   </insert>
@@ -119,8 +119,8 @@
       <if test="typeId != null" >
         type_id,
       </if>
-      <if test="desc != null" >
-        desc,
+      <if test="clothesDescribe != null" >
+        clothes_describe,
       </if>
       <if test="userId != null" >
         user_id,
@@ -145,8 +145,8 @@
       <if test="typeId != null" >
         #{typeId,jdbcType=INTEGER},
       </if>
-      <if test="desc != null" >
-        #{desc,jdbcType=VARCHAR},
+      <if test="clothesDescribe != null" >
+        #{clothesDescribe,jdbcType=VARCHAR},
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
@@ -180,8 +180,8 @@
       <if test="record.typeId != null" >
         type_id = #{record.typeId,jdbcType=INTEGER},
       </if>
-      <if test="record.desc != null" >
-        desc = #{record.desc,jdbcType=VARCHAR},
+      <if test="record.clothesDescribe != null" >
+        clothes_describe = #{record.clothesDescribe,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null" >
         user_id = #{record.userId,jdbcType=INTEGER},
@@ -207,7 +207,7 @@
     update t_clothes
     set id = #{record.id,jdbcType=INTEGER},
       type_id = #{record.typeId,jdbcType=INTEGER},
-      desc = #{record.desc,jdbcType=VARCHAR},
+      clothes_describe = #{record.clothesDescribe,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=INTEGER},
       apply_id = #{record.applyId,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
@@ -223,8 +223,8 @@
       <if test="typeId != null" >
         type_id = #{typeId,jdbcType=INTEGER},
       </if>
-      <if test="desc != null" >
-        desc = #{desc,jdbcType=VARCHAR},
+      <if test="clothesDescribe != null" >
+        clothes_describe = #{clothesDescribe,jdbcType=VARCHAR},
       </if>
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
@@ -247,7 +247,7 @@
   <update id="updateByPrimaryKey" parameterType="com.ssm.entity.TClothes" >
     update t_clothes
     set type_id = #{typeId,jdbcType=INTEGER},
-      desc = #{desc,jdbcType=VARCHAR},
+      clothes_describe = #{clothesDescribe,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=INTEGER},
       apply_id = #{applyId,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},

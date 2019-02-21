@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.33 (64 bit)
 MySQL - 5.1.49-community : Database - clothes_donate
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -43,7 +44,7 @@ DROP TABLE IF EXISTS `t_clothes`;
 CREATE TABLE `t_clothes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL COMMENT '衣服类型id',
-  `desc` varchar(255) DEFAULT NULL COMMENT '衣服描述',
+  `describe` varchar(255) DEFAULT NULL COMMENT '衣服描述',
   `user_id` int(11) DEFAULT NULL COMMENT '所属用户id',
   `apply_id` int(11) DEFAULT NULL COMMENT '申请id',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',

@@ -5,7 +5,7 @@ public class TClothes {
 
     private Integer typeId;
 
-    private String desc;
+    private String clothesDescribe;
 
     private Integer userId;
 
@@ -33,12 +33,12 @@ public class TClothes {
         this.typeId = typeId;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getClothesDescribe() {
+        return clothesDescribe;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setClothesDescribe(String clothesDescribe) {
+        this.clothesDescribe = clothesDescribe;
     }
 
     public Integer getUserId() {
