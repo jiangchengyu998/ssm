@@ -98,7 +98,7 @@
 			<div class="col-md-6">
 				<nav aria-label="Page navigation">
 				<ul class="pagination">
-					<li><a href="javascript:void(0);" onclick="page(${pageInfo.pageNum-1});">首页</a></li>
+					<li><a href="javascript:void(0);" onclick="page('1');">首页</a></li>
 					<c:if test="${pageInfo.hasPreviousPage }">
 						<li><a href="javascript:void(0);" onclick="page(${pageInfo.pageNum-1});"
 							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
