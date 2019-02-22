@@ -6,7 +6,7 @@ public class TClothesType {
     private String typeName;
 
     private String remark;
-
+    // 0-衣服，1-裤子，2-其他
     private String type;
 
     public Integer getId() {
