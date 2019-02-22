@@ -52,13 +52,13 @@
     <thead>
     <tr>
         <th>序号</th>
-        <th>typeId</th>
-        <th>clothesDescribe</th>
-        <th>userId</th>
-        <th>applyId</th>
-        <th>remark</th>
-        <th>size</th>
-        <th>color</th>
+        <th>衣服类型</th>
+        <th>描述</th>
+        <th>所属用户</th>
+        <%--<th>申请id</th>--%>
+        <th>备注</th>
+        <th>大小</th>
+        <th>颜色</th>
         <%--<c:if test="${login.role!='3'}">--%>
         <th>操作</th>
         <%--</c:if>--%>
@@ -77,9 +77,9 @@
             <td>
                     ${cloth.userId}
             </td>
-            <td>
-                    ${cloth.applyId}
-            </td>
+            <%--<td>--%>
+                    <%--${cloth.applyId}--%>
+            <%--</td>--%>
             <td>
                     ${cloth.remark}
             </td>

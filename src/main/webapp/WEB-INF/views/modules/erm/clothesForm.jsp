@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+<jsp:useBean id="clothes" class="com.ssm.entity.TClothes" scope="request"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,16 +18,21 @@
 		<li class="active"><a href="${adminPath}/clothes/form">衣物添加</a></li>
 	</ul>
 	<br>
-	<form id="inputForm"  action="${adminPath}/clothes/save" method="post" class="form-horizontal" >
-		<input type="hidden" value="${clothes.id}" name="id" id="id"  />
-			
-			<div class="form-group" id="roleSelect">
-				<label   class="col-sm-1 control-label">类型id</label>
-   				<div class="col-sm-6">
-						<input name="typeId" id="typeId" class="form-control" value="${clothes.typeId}"/>
-				</div>
+	<form:form id="inputForm" modelAttribute="clothes" action="${adminPath}/clothes/save" method="post" class="form-horizontal">
+		<input type="hidden" value="${clothes.id}" name="id" id="id"/>
+
+		<div class="form-group" id="roleSelect">
+			<label for="typeId" class="col-sm-1 control-label">类型</label>
+			<div class="col-sm-6">
+				<form:select path="typeId" class="form-control ">
+					<form:option value="1">正常</form:option>
+					<form:option value="0">旷工</form:option>
+					<form:option value="2">迟到</form:option>
+					<form:option value="3">早退</form:option>
+				</form:select>
 			</div>
-			
+		</div>
+
 			<div class="form-group" id="roleSelect">
 				<label   class="col-sm-1 control-label">描述</label>
 				<div class="col-sm-6">
@@ -35,7 +41,7 @@
 			</div>
 			
 			<div class="form-group" id="roleSelect">
-				<label   class="col-sm-1 control-label">用户id</label>
+				<label   class="col-sm-1 control-label">所属用户</label>
 				<div class="col-sm-6">
 					<input name="userId" id="userId" class="form-control" value="${clothes.userId}"/>
 				</div>
@@ -79,6 +85,6 @@
 			<%--</div>--%>
 			<button class="btn btn-success" type="submit">保 存</button>
 			<button class="btn btn-inf" type="button" onclick="javascript:history.go(-1);">返 回</button>
-	</form>
+	</form:form>
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -39,7 +40,7 @@ public class ClothesController {
         return "modules/erm/clothesForm";
     }
 
-    @RequestMapping("/clothes/save")
+    @RequestMapping(value = "/clothes/save", method = RequestMethod.POST)
     public String save(TClothes clothes, RedirectAttributes redirectAttributes) {
         if (StringUtils.isEmpty(clothes.getId())) {
             clothesService.add(clothes);
