@@ -52,12 +52,15 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(pageNum, pageSize);
         TUserExample example = new TUserExample();
         TUserExample.Criteria criteria = example.createCriteria();
-        if(!StringUtils.isEmpty(t.getUsername())){
-            criteria.andUsernameLike("%"+t.getUsername()+"%");
+        if( t != null){
+            if(!StringUtils.isEmpty(t.getUsername())){
+                criteria.andUsernameLike("%"+t.getUsername()+"%");
+            }
+            if(!StringUtils.isEmpty(t.getPhone())){
+                criteria.andPhoneLike("%"+t.getPhone()+"%");
+            }
         }
-        if(!StringUtils.isEmpty(t.getPhone())){
-            criteria.andPhoneLike("%"+t.getPhone()+"%");
-        }
+
         List<TUser> tUsers = tUserMapper.selectByExample(example);
         return new PageInfo<TUser>(tUsers);
     }

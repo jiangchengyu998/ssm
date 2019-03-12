@@ -69,13 +69,13 @@
         <tr>
             <td>${index_no.index+1+(pageInfo.pageNum-1)*pageInfo.pageSize }</td>
             <td><a href="${adminPath}/clothes/form?id=${cloth.id}">
-                    ${cloth.typeId}
+                    ${cloth.typeName}
             </a></td>
             <td>
                     ${cloth.clothesDescribe}
             </td>
             <td>
-                    ${cloth.userId}
+                    ${cloth.username}
             </td>
             <%--<td>--%>
                     <%--${cloth.applyId}--%>

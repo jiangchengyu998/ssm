@@ -3,7 +3,11 @@ package com.ssm.web;
 
 import com.github.pagehelper.PageInfo;
 import com.ssm.entity.TClothes;
+import com.ssm.entity.TClothesType;
+import com.ssm.entity.TUser;
 import com.ssm.service.ClothesService;
+import com.ssm.service.ClothesTypeService;
+import com.ssm.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -18,8 +22,14 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class ClothesController {
+
+
     @Resource
     private ClothesService clothesService;
+    @Resource
+    private ClothesTypeService clothesTypeService;
+    @Resource
+    private UserService userService;
 
     @RequestMapping("/clothes")
     public String clothes(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value =
@@ -37,6 +47,10 @@ public class ClothesController {
             TClothes byId = clothesService.getById(id);
             model.addAttribute("clothes",byId);
         }
+        PageInfo<TClothesType> page = clothesTypeService.page(1, 0, null);
+        model.addAttribute("TClothesTypes",page.getList());
+        PageInfo<TUser> pageInfo = userService.page(1, 0, null);
+        model.addAttribute("users",pageInfo.getList());
         return "modules/erm/clothesForm";
     }
 

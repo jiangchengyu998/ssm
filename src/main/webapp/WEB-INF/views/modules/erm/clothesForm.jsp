@@ -25,10 +25,9 @@
 			<label for="typeId" class="col-sm-1 control-label">类型</label>
 			<div class="col-sm-6">
 				<form:select path="typeId" class="form-control ">
-					<form:option value="1">正常</form:option>
-					<form:option value="0">旷工</form:option>
-					<form:option value="2">迟到</form:option>
-					<form:option value="3">早退</form:option>
+					<c:forEach var="clothesTypes" items="${TClothesTypes}">
+						<form:option value="${clothesTypes.id}">${clothesTypes.typeName}</form:option>
+					</c:forEach>
 				</form:select>
 			</div>
 		</div>
@@ -43,7 +42,11 @@
 			<div class="form-group" id="roleSelect">
 				<label   class="col-sm-1 control-label">所属用户</label>
 				<div class="col-sm-6">
-					<input name="userId" id="userId" class="form-control" value="${clothes.userId}"/>
+					<form:select path="userId" class="form-control ">
+						<c:forEach var="user" items="${users}">
+							<form:option value="${user.id}">${user.username}</form:option>
+						</c:forEach>
+					</form:select>
 				</div>
 			</div>
 			
