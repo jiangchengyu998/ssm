@@ -53,14 +53,14 @@
                                     <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b193" href="${adminPath }/userList?pageNum=1&pageSize=10"><i class="fa fa-leaf"></i>用户管理</a></li>
                                     <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b194" href="${adminPath }/clothes"><i class="fa fa-leaf"></i>衣物管理</a></li>
                                     <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b196" href="${adminPath }/clothesType"><i class="fa fa-leaf"></i>衣物类型管理</a></li>
-                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/erm/salary"><i class="fa fa-leaf"></i>衣物申请管理</a></li>
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/apply"><i class="fa fa-leaf"></i>捐赠申请管理</a></li>
                                 </ul>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li class="treeview"><a href="#"><i class="fa fa-desktop"></i><span>我的捐赠管理</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu menu-open" style="display: block;">
-                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/erm/salary"><i class="fa fa-leaf"></i>我的捐赠申请</a></li>
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/apply"><i class="fa fa-leaf"></i>我的捐赠申请</a></li>
                                 </ul>
                             </li>
                         </c:otherwise>
@@ -117,7 +117,7 @@
                             <iframe class="LRADMS_iframe" width="100%" height="100%" src="${adminPath }/userList" frameborder="0" data-id="index"></iframe>
                         </c:when>
                         <c:otherwise>
-                            <a href="javascript:;" class="menuTab active" data-id="index">欢迎使用<i class="fa fa-remove"></i></a>
+                            <iframe class="LRADMS_iframe" width="100%" height="100%" src="${adminPath }/apply" frameborder="0" data-id="index"></iframe>
                         </c:otherwise>
                     </c:choose>
                 </div>
