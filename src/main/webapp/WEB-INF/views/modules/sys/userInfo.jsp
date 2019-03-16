@@ -21,8 +21,8 @@
 	</div>
 	<div class="panel-body">
 	<form id="inputForm" modelAttribute="user" action="${adminPath}/user/updateUserInfo" method="post" class="form-horizontal">
-		<hidden path="id"/>
-			
+		<input id="id" name="id" htmlEscape="false" type="hidden" maxlength="255" class="form-control " value="${user.id}"/>
+
 			<div class="form-group" id="roleSelect">
 				<label for="firstname" class="col-sm-1 control-label">用户名</label>
    				<div class="col-sm-6">
@@ -37,17 +37,6 @@
 				</div>
 			</div>
 			
-			<%--<div class="form-group" id="roleSelect">--%>
-				<%--<label for="firstname" class="col-sm-1 control-label">性别</label>--%>
-   				<%--<div class="col-sm-6">--%>
-					<%--<form:select path="sex" htmlEscape="false" maxlength="64" class="form-control ">--%>
-						<%--<form:option value="男">男</form:option>--%>
-						<%--<form:option value="女">女</form:option>--%>
-					<%--</form:select>--%>
-				<%--</div>--%>
-			<%--</div>--%>
-			
-
 			<div class="form-group" id="roleSelect">
 				<label for="firstname" class="col-sm-1 control-label">手机</label>
    				<div class="col-sm-6">

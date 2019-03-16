@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -40,6 +41,59 @@ public class UserController {
         return "modules/sys/login";
     }
 
+    @RequestMapping(value = "register")
+    public String register(RedirectAttributes redirectAttributes) {
+        return "modules/sys/register";
+    }
+
+    @RequestMapping(value = "doRegister")
+    public String doRegister(TUser user,RedirectAttributes redirectAttributes,HttpServletRequest request,HttpSession session) {
+        String password = user.getPassword();
+        String phone = user.getPhone();
+        String username = user.getUsername();
+        if (StringUtils.isEmpty(username)) {
+            redirectAttributes.addFlashAttribute("msg", "请输入用户名！");
+            return "redirect:" + "/sys/user/register";
+        }
+        if (StringUtils.isEmpty(phone)) {
+            redirectAttributes.addFlashAttribute("msg", "请输入电话号码！");
+            redirectAttributes.addFlashAttribute("username", user.getUsername());
+            return "redirect:"+"/sys/user/register";
+        }
+        String password1 = request.getParameter("password1");
+
+        if (StringUtils.isEmpty(password1)) {
+            redirectAttributes.addFlashAttribute("msg", "请输入确认密码！");
+            redirectAttributes.addFlashAttribute("phone", user.getPhone());
+            redirectAttributes.addFlashAttribute("password", user.getPassword());
+            redirectAttributes.addFlashAttribute("username", user.getUsername());
+            return "redirect:"+"/sys/user/register";
+        }
+        if (!password1.equals(password)) {
+            redirectAttributes.addFlashAttribute("msg", "两次输入密码不正确！");
+            redirectAttributes.addFlashAttribute("phone", user.getPhone());
+            redirectAttributes.addFlashAttribute("password", user.getPassword());
+            redirectAttributes.addFlashAttribute("password1", password1);
+            redirectAttributes.addFlashAttribute("username", user.getUsername());
+            return "redirect:"+"/sys/user/register";
+        }
+        // 获取验证码
+        String imageCode = request.getParameter("yzm");
+        if (StringUtils.isEmpty(imageCode)) {
+            redirectAttributes.addFlashAttribute("imageCode", imageCode);
+            redirectAttributes.addFlashAttribute("phone", user.getPhone());
+            redirectAttributes.addFlashAttribute("password", user.getPassword());
+            redirectAttributes.addFlashAttribute("password1", password1);
+            redirectAttributes.addFlashAttribute("username", user.getUsername());
+            redirectAttributes.addFlashAttribute("msg", "请输入验证码！");
+            return "redirect:"+"/sys/user/register";
+        }
+        userService.add(user);
+        redirectAttributes.addFlashAttribute("phone", user.getPhone());
+        redirectAttributes.addFlashAttribute("password", user.getPassword());
+        redirectAttributes.addFlashAttribute("msg", "注册成功！");
+        return "redirect:"+"/login";
+    }
     /**
      * 登录操作
      */
@@ -138,6 +192,14 @@ public class UserController {
      */
     @RequestMapping(value = "/user/userInfo")
     public String userInfo(Model model, HttpServletRequest request) {
+        TUser currentUser = UserUtils.getCurrentUser(request);
+        model.addAttribute("user", userService.getById(currentUser.getId()));
+        return "modules/sys/userInfo";
+    }
+
+    @RequestMapping(value = "/user/updateUserInfo")
+    public String updateUserInfo(Model model,TUser user, HttpServletRequest request) {
+        userService.update(user);
         TUser currentUser = UserUtils.getCurrentUser(request);
         model.addAttribute("user", userService.getById(currentUser.getId()));
         return "modules/sys/userInfo";

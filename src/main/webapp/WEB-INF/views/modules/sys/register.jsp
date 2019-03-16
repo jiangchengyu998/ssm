@@ -41,18 +41,13 @@
             <h2 class="mg-b20 text-center">衣物捐赠系统</h2>
             <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
                 <p class="text-center font16">注册</p>
-                <form action="${adminPath }/sys/user/doRegister" method="post">
+                <form action="${adminPath }/doRegister" method="post">
                     <div class="form-group mg-t20">
                         <i class="icon-data icon_font"></i>
                         <input type="text" class="login_input" id="username" name="username" value="${username }" placeholder="请输入用户名" />
                     </div>
                     <div class="form-group mg-t20">
-                        <i class="icon-data icon_font"></i>
-                        <input type="text" class="login_input" id="trueName" name="trueName" value="${trueName }" placeholder="请输入真实姓名" />
-                    </div>
-                    <div class="form-group mg-t20">
                         <i class="icon-user icon_font"></i>
-                        <%--<input type="text" class="login_input" id="username" name="username" value="${username }" placeholder="请输入用户名" />--%>
                         <input type="text" class="login_input" id="phone" name="phone" value="${phone }" placeholder="请输入电话号码" />
                     </div>
                     <div class="form-group mg-t20">
@@ -81,8 +76,8 @@
                     <button style="submit" class="login_btn">注 册</button>
                     <br>
                     <p>
-                        <a href="${adminPath}/sys/user/login">
-                            已有经理账号 登录
+                        <a href="${adminPath}/login">
+                            已有账号 登录
                         </a>
                     </p>
                </form>

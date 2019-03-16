@@ -56,6 +56,12 @@ public class ApplyController {
         return "modules/erm/applyForm";
     }
 
+    @RequestMapping("/apply/applyLogistics")
+    public String applyLogistics(@RequestParam(value = "id", required = false) Integer id, Model model) {
+       model.addAttribute("id",id);
+        return "modules/erm/applyLogistics";
+    }
+
     @RequestMapping(value = "/apply/save", method = RequestMethod.POST)
     public String save(TApply apply, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         if (StringUtils.isEmpty(apply.getId())) {
@@ -72,6 +78,21 @@ public class ApplyController {
     @RequestMapping("/apply/delete")
     public String delete(Integer id, RedirectAttributes redirectAttributes) {
         applyService.deleteById(id);
+        redirectAttributes.addFlashAttribute("msg", "删除成功！");
+        return "redirect:/apply";
+    }
+
+    @RequestMapping("/apply/agree")
+    public String agree(Integer id, Integer receive, RedirectAttributes redirectAttributes) {
+        TApply tApply = new TApply();
+        tApply.setId(id);
+//        状态（0-用户申请，1-管理员同意（等待用户寄送衣服），2-用户已经寄出衣服，3-管理员收到衣服并且回执。）
+        if(receive.equals(1)){
+            tApply.setStatus("3");
+        }else {
+            tApply.setStatus("1");
+        }
+        applyService.update(tApply);
         redirectAttributes.addFlashAttribute("msg", "删除成功！");
         return "redirect:/apply";
     }

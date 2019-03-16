@@ -9,6 +9,7 @@ public class TApply {
 
     private Integer clothesNum;
 
+//    状态（0-用户申请，1-管理员同意（等待用户寄送衣服），2-用户已经寄出衣服，3-管理员收到衣服并且回执。4-不同意）
     private String status;
 
     private String logisticsNumber;

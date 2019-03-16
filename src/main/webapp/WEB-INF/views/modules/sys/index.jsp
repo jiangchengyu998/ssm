@@ -61,6 +61,7 @@
                             <li class="treeview"><a href="#"><i class="fa fa-desktop"></i><span>我的捐赠管理</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu menu-open" style="display: block;">
                                     <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath }/apply"><i class="fa fa-leaf"></i>我的捐赠申请</a></li>
+                                    <li><a class="menuItem" data-id="7ae94059-9aa5-48eb-8330-4e2a6565b195" href="${adminPath}/apply/form"><i class="fa fa-leaf"></i>爱心申请</a></li>
                                 </ul>
                             </li>
                         </c:otherwise>

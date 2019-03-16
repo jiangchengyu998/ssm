@@ -117,19 +117,29 @@
                     ${apply.updateTime}
             </td>
             <td>
-                <a href="${adminPath}/apply/form?id=${apply.id}">
-                    编辑
-                </a>
+                <c:if test="${apply.status != '3'}">
+                    <a href="${adminPath}/apply/form?id=${apply.id}">
+                        编辑
+                    </a>
+                </c:if>
+                <%--状态（0-用户申请，1-管理员同意（等待用户寄送衣服），2-用户已经寄出衣服，3-管理员收到衣服并且回执。4-不同意）--%>
                 <c:if test="${apply.status == '1'}">
                     <c:if test="${login.type == '0'}">
-                        <a href="${adminPath}/apply/form?id=${apply.id}">
+                        <a href="${adminPath}/apply/applyLogistics?id=${apply.id}">
                             填写物流信息
+                        </a>
+                    </c:if>
+                </c:if>
+                <c:if test="${apply.status == '2'}">
+                    <c:if test="${login.type == '1'}">
+                        <a href="${adminPath}/apply/agree?id=${apply.id}&receive=1" onclick="return confirm('确认收到收到衣服了吗？', this.href)">
+                            收到衣服并回执
                         </a>
                     </c:if>
                 </c:if>
                 <c:if test="${apply.status == '0'}">
                     <c:if test="${login.type == '1'}">
-                        <a href="${adminPath}/apply/form?id=${apply.id}">
+                        <a href="${adminPath}/apply/agree?id=${apply.id}" onclick="return confirm('确认同意申请吗？', this.href)">
                             同意申请
                         </a>
                     </c:if>
@@ -181,5 +191,7 @@
         </nav>
     </div>
 </div>
+
+
 </body>
 </html>

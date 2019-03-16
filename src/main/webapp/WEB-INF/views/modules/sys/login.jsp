@@ -64,7 +64,7 @@
                     <button style="submit" class="login_btn">登 录</button>
                     <br>
                     <p>
-                        <a href="${adminPath}/sys/user/register">
+                        <a href="${adminPath}/register">
                                 注册
                         </a>
                     </p>

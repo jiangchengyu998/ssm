@@ -42,6 +42,8 @@
 			<mvc:exclude-mapping path="/static/**"/>
 			<mvc:exclude-mapping path="/login"/>
 			<mvc:exclude-mapping path="/doLogin"/>
+			<mvc:exclude-mapping path="/register"/>
+			<mvc:exclude-mapping path="/doRegister"/>
 			<bean class="com.ssm.interceptor.LoginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
