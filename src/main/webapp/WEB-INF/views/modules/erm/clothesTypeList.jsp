@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
+<jsp:useBean id="clothesType" class="com.ssm.entity.TClothesType" scope="request"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,24 +24,29 @@
     <li><a href="${adminPath}/clothesType/form">衣物类型添加</a></li>
 </ul>
 <br>
-<form id="searchForm" modelAttribute="clothesType" action="${adminPath}/clothesType" method="post" class="form-horizontal">
+<form:form id="searchForm" modelAttribute="clothesType" action="${adminPath}/clothesType" method="post" class="form-horizontal">
     <input id="pageNum" name="pageNum" type="hidden" value="${pageInfo.pageNum}"/>
     <div class="form-group">
-        <label class="col-sm-1 control-label">颜色：</label>
+        <label class="col-sm-1 control-label">类型名称：</label>
         <div class="col-sm-2">
-            <input name="salaryYear" id="salaryYear" readonly="readonly"
-                   onclick="WdatePicker({dateFmt:'yyyy',isShowClear:false});" value="${checkingIn.year }">
+            <input id="typeName" name="typeName" class="form-control input-sm" placeholder="类型名称" value="${clothesType.typeName}"/>
         </div>
-        <label class="col-sm-1 control-label">用户名称：</label>
+        <label for="type" class="col-sm-1 control-label">类型：</label>
         <div class="col-sm-2">
-            <input path="userName" htmlEscape="false" class="form-control input-sm" placeholder="用户名或者真实姓名"/>
+            <%--0-衣服，1-裤子，2-其他--%>
+            <form:select path="type" class="form-control ">
+                <form:option value="">请选择</form:option>
+                <form:option value="0">衣服</form:option>
+                <form:option value="1">裤子</form:option>
+                <form:option value="2">其他</form:option>
+            </form:select>
         </div>
         <button class="btn btn-success" type="submit">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             查询
         </button>
     </div>
-</form>
+</form:form>
 <c:if test="${msg!=null}">
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

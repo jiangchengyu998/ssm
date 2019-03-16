@@ -55,8 +55,10 @@ public class ApplyServiceImpl implements ApplyService {
         PageHelper.startPage(pageNum, pageSize);
         TApplyExample example = new TApplyExample();
         TApplyExample.Criteria criteria = example.createCriteria();
-        if(!StringUtils.isEmpty(t.getUserId())){
-            criteria.andUserIdEqualTo(t.getUserId());
+        if(t!=null){
+            if(!StringUtils.isEmpty(t.getUserId())){
+                criteria.andUserIdEqualTo(t.getUserId());
+            }
         }
         List<TApply> list = tApplyMapper.selectByExample(example);
         return new PageInfo<TApply>(list);

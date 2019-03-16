@@ -25,10 +25,10 @@
 		<input id="pageNum" name="pageNum" type="hidden" value="${pageInfo.pageNum}"/>
 		<div class="form-group">
 				<div class="col-sm-1">
-   					<input id="username" name="username" class="form-control input-sm" placeholder="用户名"/>
+   					<input id="username" name="username" class="form-control input-sm" placeholder="用户名" value="${username}"/>
    				</div>
 				<div class="col-sm-1">
-   					<input id="phone" name="phone" class="form-control input-sm" placeholder="电话"/>
+   					<input id="phone" name="phone" class="form-control input-sm" placeholder="电话" value="${phone}"/>
    				</div>
 			<button class="btn btn-success btn-sm" type="submit">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>

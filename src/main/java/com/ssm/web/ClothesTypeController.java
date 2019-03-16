@@ -26,6 +26,7 @@ public class ClothesTypeController {
                           HttpServletResponse response, Model model) {
         PageInfo<TClothesType> page = clothesTypeService.page(pageNum, pageSize, tClothesType);
         model.addAttribute("pageInfo", page);
+        model.addAttribute("clothesType", tClothesType);
         return "modules/erm/clothesTypeList";
     }
 

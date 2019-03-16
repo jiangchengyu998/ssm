@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
+<jsp:useBean id="clothes" class="com.ssm.entity.TClothes" scope="request"/>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,24 +25,29 @@
     <li><a href="${adminPath}/clothes/form">衣物添加</a></li>
 </ul>
 <br>
-<form id="searchForm" modelAttribute="cloth" action="${adminPath}/clothes" method="post" class="form-horizontal">
+<form:form id="searchForm" modelAttribute="clothes" action="${adminPath}/clothes" method="post" class="form-horizontal">
     <input id="pageNum" name="pageNum" type="hidden" value="${pageInfo.pageNum}"/>
     <div class="form-group">
         <label class="col-sm-1 control-label">颜色：</label>
         <div class="col-sm-2">
-            <input name="salaryYear" id="salaryYear" readonly="readonly"
-                   onclick="WdatePicker({dateFmt:'yyyy',isShowClear:false});" value="${checkingIn.year }">
+            <input id="color" name="color" class="form-control input-sm" placeholder="颜色" value="${clothes.color}"/>
         </div>
-        <label class="col-sm-1 control-label">用户名称：</label>
+        <label for="userId" class="col-sm-1 control-label">所属用户：</label>
         <div class="col-sm-2">
-            <input path="userName" htmlEscape="false" class="form-control input-sm" placeholder="用户名或者真实姓名"/>
+                <%--0-衣服，1-裤子，2-其他--%>
+            <form:select path="userId" class="form-control ">
+                <form:option value="">请选择</form:option>
+                <c:forEach items="${users}" var="user" >
+                        <form:option value="${user.id}">${user.username}</form:option>
+                </c:forEach>
+            </form:select>
         </div>
         <button class="btn btn-success" type="submit">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             查询
         </button>
     </div>
-</form>
+</form:form>
 <c:if test="${msg!=null}">
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

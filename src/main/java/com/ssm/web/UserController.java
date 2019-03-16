@@ -143,6 +143,8 @@ public class UserController {
          */
         PageInfo<TUser> page = userService.page(pageNum, pageSize, user);
         model.addAttribute("pageInfo", page);
+        model.addAttribute("username", user.getUsername());
+        model.addAttribute("phone", user.getPhone());
         return "modules/sys/userList";
     }
 

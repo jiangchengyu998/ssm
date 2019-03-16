@@ -7,6 +7,7 @@ import com.ssm.entity.TClothes;
 import com.ssm.entity.TClothesExample;
 import com.ssm.service.ClothesService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -43,12 +44,14 @@ public class ClothesServiceImpl implements ClothesService {
         PageHelper.startPage(pageNum, pageSize);
         TClothesExample example = new TClothesExample();
         TClothesExample.Criteria criteria = example.createCriteria();
-//        if(!StringUtils.isEmpty(t.getUsername())){
-//            criteria.andUsernameLike("%"+t.getUsername()+"%");
-//        }
-//        if(!StringUtils.isEmpty(t.getPhone())){
-//            criteria.andPhoneLike("%"+t.getPhone()+"%");
-//        }
+        if(t!=null){
+            if(!StringUtils.isEmpty(t.getUserId())){
+                criteria.andUserIdEqualTo(t.getUserId());
+            }
+            if(!StringUtils.isEmpty(t.getColor())){
+                criteria.andColorLike("%"+t.getColor()+"%");
+            }
+        }
         List<TClothes> tUsers = tClothesMapper.selectByExample(example);
         return new PageInfo<TClothes>(tUsers);
     }

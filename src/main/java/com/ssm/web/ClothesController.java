@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class ClothesController {
@@ -37,6 +38,9 @@ public class ClothesController {
                           HttpServletResponse response, Model model) {
         PageInfo<TClothes> page = clothesService.page(pageNum, pageSize, tClothes);
         model.addAttribute("pageInfo", page);
+        model.addAttribute("clothes", tClothes);
+        List<TUser> list = userService.page(1, 0, null).getList();
+        model.addAttribute("users", list);
         return "modules/erm/clothesList";
     }
 
