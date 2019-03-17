@@ -39,12 +39,12 @@
 		<form id="conForm" class=" form-inline">
   <div class="form-group">
     <div class="col-md-2 ">
-    <input type="text" class="form-control" id="userId" name="userId" placeholder="请输入员工编号">
+    <input type="text" class="form-control" id="userId" name="userId" placeholder="请输入 编号">
     </div>
   </div>
   <div class="form-group"  >
     <div class="col-md-2 ">
-    <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入员工姓名">
+    <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入 姓名">
     </div>
   </div>
   <div class="form-group">

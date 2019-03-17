@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>JeeSSM框架模板</title>
+    <title> 衣物捐赠系统</title>
     <link rel="stylesheet" href="${ctxStatic }/ui/js/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${ctxStatic }/ui/css/font-awesome.min.css">
     <link rel="stylesheet" href="${ctxStatic }/ui/css/index.css">
